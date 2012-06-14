@@ -16,7 +16,6 @@
     <!-- in case we are running in release env -->
     <fileset dir="${flume.base}/lib">
       <include name="flume-*.jar" />
-      <include name="krestrel/*.jar" />
     </fileset>
     <pathelement location="${flume.base}/lib/"/>
   </path>
@@ -25,17 +24,17 @@
     <mkdir dir="build"/>
     <mkdir dir="build/classes"/>
  
-    <javac srcdir="./src/com/blangdon/flume/krestrel" destdir="build/classes" debug="${javac.debug}">
+    <javac srcdir="./src/com/blangdon/flume/kestrel" destdir="build/classes" debug="${javac.debug}">
       <classpath refid="classpath"/>
     </javac>
  
-    <jar jarfile="flume-krestrel.jar" basedir="build/classes"/>
+    <jar jarfile="flume-kestrel.jar" basedir="build/classes"/>
   </target>
  
   <target name="clean">
     <echo message="Cleaning generated files and stuff"/>
     <delete dir="build" />
-    <delete file="flume-krestrel.jar" />
+    <delete file="flume-kestrel.jar" />
   </target>
  
 </project>

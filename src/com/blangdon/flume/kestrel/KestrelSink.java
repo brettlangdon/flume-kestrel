@@ -14,7 +14,7 @@ import com.cloudera.util.Pair;
 import com.google.common.base.Preconditions;
 
 /**
- * Sink that sends events to HornetQ queue
+ * Sink that sends events to Kestrel queue
  */
 public class KestrelSink extends EventSink.Base {
 	
