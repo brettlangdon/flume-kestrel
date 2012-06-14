@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<project name="flume-kestrel" default="jar">
+  <property name="javac.debug" value="on"/>
+  <property name="flume.base" value="/usr/lib/flume"/>
+ 
+  <path id="classpath">
+    <!-- in case we are running in dev env -->
+    <pathelement location="${flume.base}/build/classes"/>
+    <fileset dir="${flume.base}/lib">
+      <include name="**/google-collect*.jar" />
+      <include name="**/guava*.jar" />
+      <include name="**/log4j-*.jar" />
+       <include name="**/slf4j-*.jar" />
+ 
+    </fileset>
+    <!-- in case we are running in release env -->
+    <fileset dir="${flume.base}/lib">
+      <include name="flume-*.jar" />
+      <include name="krestrel/*.jar" />
+    </fileset>
+    <pathelement location="${flume.base}/lib/"/>
+  </path>
+ 
+  <target name="jar">
+    <mkdir dir="build"/>
+    <mkdir dir="build/classes"/>
+ 
+    <javac srcdir="./src/com/blangdon/flume/krestrel" destdir="build/classes" debug="${javac.debug}">
+      <classpath refid="classpath"/>
+    </javac>
+ 
+    <jar jarfile="flume-krestrel.jar" basedir="build/classes"/>
+  </target>
+ 
+  <target name="clean">
+    <echo message="Cleaning generated files and stuff"/>
+    <delete dir="build" />
+    <delete file="flume-krestrel.jar" />
+  </target>
+ 
+</project>
