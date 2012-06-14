@@ -16,7 +16,7 @@
     <!-- in case we are running in release env -->
     <fileset dir="${flume.base}/lib">
       <include name="flume-*.jar" />
-      <include name="kestrel-client*.jar" />
+      <include name="xmemcached/*.jar" />
     </fileset>
     <pathelement location="${flume.base}/lib/"/>
   </path>
